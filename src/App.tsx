@@ -153,43 +153,43 @@ async function f(id: number) {
     }
     case 14: {
       const start = performance.now();
-      await workerApis.groth16Prove(`${window.location.href}/input128_add256_mul256.wasm`, `${window.location.href}/input128_add256_mul256.zkey`, 128);
+      await workerApis.groth16Prove("https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add256_mul256.wasm", "https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add256_mul256.zkey", 128);
       const time = performance.now() - start;
       return `${time} ms`;
     }
     case 15: {
       const start = performance.now();
-      await workerApis.groth16Prove(`${window.location.href}/input128_add512_mul512.wasm`, `${window.location.href}/input128_add512_mul512.zkey`, 128);
+      await workerApis.groth16Prove("https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add512_mul512.wasm", "https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add512_mul512.zkey", 128);
       const time = performance.now() - start;
       return `${time} ms`;
     }
     case 16: {
       const start = performance.now();
-      await workerApis.groth16Prove(`${window.location.href}/input128_add1024_mul1024.wasm`, `${window.location.href}/input128_add1024_mul1024.zkey`, 128);
+      await workerApis.groth16Prove("https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add1024_mul1024.wasm", "https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add1024_mul1024.zkey", 128);
       const time = performance.now() - start;
       return `${time} ms`;
     }
     case 17: {
       const start = performance.now();
-      await workerApis.groth16Prove(`${window.location.href}/input128_add2048_mul2048.wasm`, `${window.location.href}/input128_add2048_mul2048.zkey`, 128);
+      await workerApis.groth16Prove("https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add2048_mul2048.wasm", "https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add2048_mul2048.zkey", 128);
       const time = performance.now() - start;
       return `${time} ms`;
     }
     case 18: {
       const start = performance.now();
-      await workerApis.groth16Prove(`${window.location.href}/input128_add4096_mul4096.wasm`, `${window.location.href}/input128_add4096_mul4096.zkey`, 128);
+      await workerApis.groth16Prove("https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add4096_mul4096.wasm", "https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add4096_mul4096.zkey", 128);
       const time = performance.now() - start;
       return `${time} ms`;
     }
     case 19: {
       const start = performance.now();
-      await workerApis.groth16Prove(`${window.location.href}/input128_add8192_mul8192.wasm`, `${window.location.href}/input128_add8192_mul8192.zkey`, 128);
+      await workerApis.groth16Prove("https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add8192_mul8192.wasm", "https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add8192_mul8192.zkey", 128);
       const time = performance.now() - start;
       return `${time} ms`;
     }
     case 20: {
       const start = performance.now();
-      await workerApis.groth16Prove(`${window.location.href}/input128_add16384_mul16384.wasm`, `${window.location.href}/input128_add16384_mul16384.zkey`, 128);
+      await workerApis.groth16Prove("https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add16384_mul16384.wasm", "https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add16384_mul16384.zkey", 128);
       const time = performance.now() - start;
       return `${time} ms`;
     }

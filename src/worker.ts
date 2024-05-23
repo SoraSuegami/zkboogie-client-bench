@@ -57,13 +57,17 @@ export async function groth16Prove(wasm_path: string, zkey_path: string, num_inp
     const input = { in: Array(num_input).fill(0) };
     console.log(JSON.stringify(input));
     console.log(wasm_path, zkey_path);
-    const wasmBuffer = await fetch(wasm_path).then(res => res.arrayBuffer());
+    const wasmBuffer = await fetch(wasm_path, {
+        mode: 'cors'
+    }).then(res => res.arrayBuffer());
     console.log(wasmBuffer);
     const wasm = new Uint8Array(wasmBuffer);
     console.log(wasm);
-    // const zkeyBuffer = await fetch(zkey_path).then(res => res.arrayBuffer());
-    // const zkey = new Uint8Array(zkeyBuffer);
-    await groth16.fullProve(input, wasm_path, zkey_path, console);
+    const zkeyBuffer = await fetch(zkey_path, {
+        mode: 'cors'
+    }).then(res => res.arrayBuffer());
+    const zkey = new Uint8Array(zkeyBuffer);
+    await groth16.fullProve(input, wasm, zkey, console);
 }
 
 const exports = {
