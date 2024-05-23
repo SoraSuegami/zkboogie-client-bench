@@ -3294,6 +3294,11 @@ coa@^2.0.2:
     chalk "^2.4.1"
     q "^1.1.2"
 
+coi-serviceworker@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/coi-serviceworker/-/coi-serviceworker-0.1.7.tgz#a105739386bf7101cdbaa32a167c576ca3376200"
+  integrity sha512-bjSUqEngCPOkErY2vbyWsaIGCNRODYzlNycaREVw5s12/C8SM+RnRUUeX6pZbTtov6C52ZLY/+tvHK+BDxuUuA==
+
 collect-v8-coverage@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/collect-v8-coverage/-/collect-v8-coverage-1.0.2.tgz#c0b29bcd33bcd0779a1344c2136051e6afd3d9e9"
