@@ -191,7 +191,7 @@ function App() {
       {listData.map((item, idx) => (
         <div key={item.id}>
           <p>{item.description}</p>
-          <button onClick={() => handleClick(item.id)}>Call function f</button>
+          <button onClick={() => handleClick(item.id)}>Prove</button>
           {results[item.id] && <p>{results[item.id]}</p>}
           {idx % 2 === 1 && <div style={{ height: '30px' }} />}
         </div>
