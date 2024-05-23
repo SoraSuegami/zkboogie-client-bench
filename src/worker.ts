@@ -11,6 +11,11 @@ export async function initMultiThreads(): Promise<MultiThreads> {
         console.log("multiThreads already initialized");
         return multiThreads;
     }
+    multiThreads = await _initMultiThreads();
+    return multiThreads;
+}
+
+async function _initMultiThreads(): Promise<MultiThreads> {
     const _multiThreads = await import(
         'zkboogie'
     );
@@ -20,8 +25,7 @@ export async function initMultiThreads(): Promise<MultiThreads> {
     await _multiThreads.initThreadPool(navigator.hardwareConcurrency);
     console.log("initThreadPool");
     await _multiThreads.init_panic_hook();
-    multiThreads = _multiThreads
-    return multiThreads;
+    return _multiThreads;
 }
 
 export async function genCircuit(num_input: number, num_add: number, num_mul: number): Promise<Uint8Array> {
@@ -37,6 +41,7 @@ export async function zkboogieProve(circuit: Uint8Array, num_input: number): Pro
         return multiThreads.zkboogie_prove_wasm(100, hasher_prefix, circuit, input);
     } catch (e) {
         console.error(e);
+        multiThreads = await _initMultiThreads();
         throw e;
     }
 }
