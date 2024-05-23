@@ -5,25 +5,32 @@ import { wrap } from 'comlink';
 const listData = [
   // { description: 'ZKBoogie: 128-bit input, 128 addition, 128 multiplication (256 = 2^8 gates)', id: 0 },
   { description: 'ZKBoogie: 128-bit input, 256 addition, 256 multiplication (512 = 2^9 gates)', id: 1 },
+  { description: 'Groth16: 128-bit input, 256 addition, 256 multiplication (512 = 2^9 gates)', id: 14 },
+
   { description: 'ZKBoogie: 128-bit input, 512 addition, 512 multiplication (1024 = 2^10 gates)', id: 2 },
+  { description: 'Groth16: 128-bit input, 512 addition, 512 multiplication (1024 = 2^10 gates)', id: 15 },
+
   { description: 'ZKBoogie: 128-bit input, 1024 addition, 1024 multiplication (2048 = 2^11 gates)', id: 3 },
+  { description: 'Groth16: 128-bit input, 1024 addition, 1024 multiplication (2048 = 2^11 gates)', id: 16 },
+
   { description: 'ZKBoogie: 128-bit input, 2048 addition, 2048 multiplication (4096 = 2^12 gates)', id: 4 },
+  { description: 'Groth16: 128-bit input, 2048 addition, 2048 multiplication (4096 = 2^12 gates)', id: 17 },
+
   { description: 'ZKBoogie: 128-bit input, 4096 addition, 4096 multiplication (8192 = 2^13 gates)', id: 5 },
+  { description: 'Groth16: 128-bit input, 4096 addition, 4096 multiplication (8192 = 2^13 gates)', id: 18 },
+
   { description: 'ZKBoogie: 128-bit input, 8192 addition, 8192 multiplication (16384 = 2^14 gates)', id: 6 },
+  { description: 'Groth16: 128-bit input, 8192 addition, 8192 multiplication (16384 = 2^14 gates)', id: 19 },
+
   { description: 'ZKBoogie: 128-bit input, 16384 addition, 16384 multiplication (32768 = 2^15 gates)', id: 7 },
+  { description: 'Groth16: 128-bit input, 16384 addition, 16384 multiplication (32768 = 2^15 gates)', id: 20 },
+
   // { description: 'ZKBoogie: 128-bit input, 32768 addition, 32768 multiplication (65536 = 2^16 gates)', id: 8 },
   // { description: 'ZKBoogie: 128-bit input, 65536 addition, 65536 multiplication (131072 = 2^17 gates)', id: 9 },
   // { description: 'ZKBoogie: 128-bit input, 131072 addition, 131072 multiplication (262144 = 2^18 gates)', id: 10 },
   // { description: 'ZKBoogie: 128-bit input, 262144 addition, 262144 multiplication (524288 = 2^19 gates)', id: 11 },
   // { description: 'ZKBoogie: 128-bit input, 524288 addition, 524288 multiplication (1048576 = 2^20 gates)', id: 12 },
   // { description: 'Groth16: 128-bit input, 128 addition, 128 multiplication (256 = 2^8 gates)', id: 13 },
-  { description: 'Groth16: 128-bit input, 256 addition, 256 multiplication (512 = 2^9 gates)', id: 14 },
-  { description: 'Groth16: 128-bit input, 512 addition, 512 multiplication (1024 = 2^10 gates)', id: 15 },
-  { description: 'Groth16: 128-bit input, 1024 addition, 1024 multiplication (2048 = 2^11 gates)', id: 16 },
-  { description: 'Groth16: 128-bit input, 2048 addition, 2048 multiplication (4096 = 2^12 gates)', id: 17 },
-  { description: 'Groth16: 128-bit input, 4096 addition, 4096 multiplication (8192 = 2^13 gates)', id: 18 },
-  { description: 'Groth16: 128-bit input, 8192 addition, 8192 multiplication (16384 = 2^14 gates)', id: 19 },
-  { description: 'Groth16: 128-bit input, 16384 addition, 16384 multiplication (32768 = 2^15 gates)', id: 20 },
 ];
 
 const worker = new Worker(new URL('./worker', import.meta.url), {
@@ -181,11 +188,12 @@ function App() {
     <div className="App">
       <h1>ZKBoogie Benchmarks</h1>
       <h3>You can generate ZKBoogie (and groth16) proofs on your browser!</h3>
-      {listData.map(item => (
+      {listData.map((item, idx) => (
         <div key={item.id}>
           <p>{item.description}</p>
           <button onClick={() => handleClick(item.id)}>Call function f</button>
           {results[item.id] && <p>{results[item.id]}</p>}
+          {idx % 2 === 1 && <div style={{ height: '30px' }} />}
         </div>
       ))}
     </div>
