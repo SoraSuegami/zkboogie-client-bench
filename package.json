@@ -11,6 +11,7 @@
     "@types/node": "^16.18.97",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
+    "@types/snarkjs": "^0.7.8",
     "coi-serviceworker": "^0.1.7",
     "comlink": "^4.4.1",
     "gh-pages": "^6.1.1",
@@ -18,6 +19,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
+    "snarkjs": "^0.7.4",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4",
     "zkboogie": "file:./zkboogie/pkg"

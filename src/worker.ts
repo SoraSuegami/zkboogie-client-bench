@@ -1,4 +1,6 @@
 import { expose, proxy } from 'comlink';
+import { groth16 } from "snarkjs";
+
 export type MultiThreads = typeof import('zkboogie');
 
 let multiThreads: MultiThreads | null = null;
@@ -46,10 +48,29 @@ export async function zkboogieProve(circuit: Uint8Array, num_input: number): Pro
     }
 }
 
+// export async function fetchWasm(wasm_path: string): Promise<Uint8Array> {
+//     const wasmBuffer = await fetch(wasm_path).then(res => res.arrayBuffer());
+//     return new Uint8Array(wasmBuffer);
+// }
+
+export async function groth16Prove(wasm_path: string, zkey_path: string, num_input: number) {
+    const input = { in: Array(num_input).fill(0) };
+    console.log(JSON.stringify(input));
+    console.log(wasm_path, zkey_path);
+    const wasmBuffer = await fetch(wasm_path).then(res => res.arrayBuffer());
+    console.log(wasmBuffer);
+    const wasm = new Uint8Array(wasmBuffer);
+    console.log(wasm);
+    // const zkeyBuffer = await fetch(zkey_path).then(res => res.arrayBuffer());
+    // const zkey = new Uint8Array(zkeyBuffer);
+    await groth16.fullProve(input, wasm_path, zkey_path, console);
+}
+
 const exports = {
     initMultiThreads,
     genCircuit,
-    zkboogieProve
+    zkboogieProve,
+    groth16Prove
 };
 expose(exports);
 export type Worker = typeof exports;

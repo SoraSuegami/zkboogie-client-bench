@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { wrap } from 'comlink';
-import { MultiThreads } from './worker';
+// import { fetchWasm } from './worker';
 
 const listData = [
-  { description: 'ZKBoogie: 128-bit input, 128 addition, 128 multiplication (256 = 2^8 gates)', id: 0 },
+  // { description: 'ZKBoogie: 128-bit input, 128 addition, 128 multiplication (256 = 2^8 gates)', id: 0 },
   { description: 'ZKBoogie: 128-bit input, 256 addition, 256 multiplication (512 = 2^9 gates)', id: 1 },
   { description: 'ZKBoogie: 128-bit input, 512 addition, 512 multiplication (1024 = 2^10 gates)', id: 2 },
   { description: 'ZKBoogie: 128-bit input, 1024 addition, 1024 multiplication (2048 = 2^11 gates)', id: 3 },
@@ -16,6 +16,14 @@ const listData = [
   // { description: 'ZKBoogie: 128-bit input, 131072 addition, 131072 multiplication (262144 = 2^18 gates)', id: 10 },
   // { description: 'ZKBoogie: 128-bit input, 262144 addition, 262144 multiplication (524288 = 2^19 gates)', id: 11 },
   // { description: 'ZKBoogie: 128-bit input, 524288 addition, 524288 multiplication (1048576 = 2^20 gates)', id: 12 },
+  // { description: 'Groth16: 128-bit input, 128 addition, 128 multiplication (256 = 2^8 gates)', id: 13 },
+  { description: 'Groth16: 128-bit input, 256 addition, 256 multiplication (512 = 2^9 gates)', id: 14 },
+  { description: 'Groth16: 128-bit input, 512 addition, 512 multiplication (1024 = 2^10 gates)', id: 15 },
+  { description: 'Groth16: 128-bit input, 1024 addition, 1024 multiplication (2048 = 2^11 gates)', id: 16 },
+  { description: 'Groth16: 128-bit input, 2048 addition, 2048 multiplication (4096 = 2^12 gates)', id: 17 },
+  { description: 'Groth16: 128-bit input, 4096 addition, 4096 multiplication (8192 = 2^13 gates)', id: 18 },
+  { description: 'Groth16: 128-bit input, 8192 addition, 8192 multiplication (16384 = 2^14 gates)', id: 19 },
+  { description: 'Groth16: 128-bit input, 16384 addition, 16384 multiplication (32768 = 2^15 gates)', id: 20 },
 ];
 
 const worker = new Worker(new URL('./worker', import.meta.url), {
@@ -141,6 +149,48 @@ async function f(id: number) {
       const proof = await workerApis.zkboogieProve(circuit, 128);
       const time = performance.now() - start;
       console.log(proof);
+      return `${time} ms`;
+    }
+    case 14: {
+      const start = performance.now();
+      await workerApis.groth16Prove(`${window.location.href}/input128_add256_mul256.wasm`, `${window.location.href}/input128_add256_mul256.zkey`, 128);
+      const time = performance.now() - start;
+      return `${time} ms`;
+    }
+    case 15: {
+      const start = performance.now();
+      await workerApis.groth16Prove(`${window.location.href}/input128_add512_mul512.wasm`, `${window.location.href}/input128_add512_mul512.zkey`, 128);
+      const time = performance.now() - start;
+      return `${time} ms`;
+    }
+    case 16: {
+      const start = performance.now();
+      await workerApis.groth16Prove(`${window.location.href}/input128_add1024_mul1024.wasm`, `${window.location.href}/input128_add1024_mul1024.zkey`, 128);
+      const time = performance.now() - start;
+      return `${time} ms`;
+    }
+    case 17: {
+      const start = performance.now();
+      await workerApis.groth16Prove(`${window.location.href}/input128_add2048_mul2048.wasm`, `${window.location.href}/input128_add2048_mul2048.zkey`, 128);
+      const time = performance.now() - start;
+      return `${time} ms`;
+    }
+    case 18: {
+      const start = performance.now();
+      await workerApis.groth16Prove(`${window.location.href}/input128_add4096_mul4096.wasm`, `${window.location.href}/input128_add4096_mul4096.zkey`, 128);
+      const time = performance.now() - start;
+      return `${time} ms`;
+    }
+    case 19: {
+      const start = performance.now();
+      await workerApis.groth16Prove(`${window.location.href}/input128_add8192_mul8192.wasm`, `${window.location.href}/input128_add8192_mul8192.zkey`, 128);
+      const time = performance.now() - start;
+      return `${time} ms`;
+    }
+    case 20: {
+      const start = performance.now();
+      await workerApis.groth16Prove(`${window.location.href}/input128_add16384_mul16384.wasm`, `${window.location.href}/input128_add16384_mul16384.zkey`, 128);
+      const time = performance.now() - start;
       return `${time} ms`;
     }
     default: {
