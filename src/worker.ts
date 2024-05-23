@@ -35,12 +35,14 @@ export async function genCircuit(num_input: number, num_add: number, num_mul: nu
     return multiThreads.gen_random_circuit(num_input, num_add, num_mul);
 }
 
-export async function zkboogieProve(circuit: Uint8Array, num_input: number): Promise<Uint8Array> {
+export async function zkboogieProve(circuit: Uint8Array, num_input: number): Promise<number> {
     try {
         const multiThreads = await initMultiThreads();
         const hasher_prefix = new Uint32Array(0);
         let input = Array(num_input).fill('0x' + '0'.repeat(64));
-        return multiThreads.zkboogie_prove_wasm(100, hasher_prefix, circuit, input);
+        const start = performance.now();
+        multiThreads.zkboogie_prove_wasm(100, hasher_prefix, circuit, input);
+        return performance.now() - start;
     } catch (e) {
         console.error(e);
         multiThreads = await _initMultiThreads();
@@ -53,21 +55,24 @@ export async function zkboogieProve(circuit: Uint8Array, num_input: number): Pro
 //     return new Uint8Array(wasmBuffer);
 // }
 
-export async function groth16Prove(wasm_path: string, zkey_path: string, num_input: number) {
+export async function groth16Prove(wasm_path: string, zkey_path: string, num_input: number): Promise<[number, number]> {
     const input = { in: Array(num_input).fill(0) };
-    console.log(JSON.stringify(input));
-    console.log(wasm_path, zkey_path);
+    let start = performance.now();
     const wasmBuffer = await fetch(wasm_path, {
         mode: 'cors'
     }).then(res => res.arrayBuffer());
-    console.log(wasmBuffer);
+    // console.log(wasmBuffer);
     const wasm = new Uint8Array(wasmBuffer);
-    console.log(wasm);
+    // console.log(wasm);
     const zkeyBuffer = await fetch(zkey_path, {
         mode: 'cors'
     }).then(res => res.arrayBuffer());
     const zkey = new Uint8Array(zkeyBuffer);
+    const downloadTime = performance.now() - start;
+    start = performance.now();
     await groth16.fullProve(input, wasm, zkey, console);
+    const proveTime = performance.now() - start;
+    return [downloadTime, proveTime];
 }
 
 const exports = {

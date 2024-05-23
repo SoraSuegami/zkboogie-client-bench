@@ -37,161 +37,108 @@ async function f(id: number) {
     case 0: {
       let circuit = await workerApis.genCircuit(128, 128, 128);
       console.log(circuit);
-      const start = performance.now();
-      const proof = await workerApis.zkboogieProve(circuit, 128);
-      const time = performance.now() - start;
-      console.log(proof);
-      return `${time} ms`;
+      const time = await workerApis.zkboogieProve(circuit, 128);
+      return `Proving time: ${time} ms`;
     }
     case 1: {
       let circuit = await workerApis.genCircuit(128, 256, 256);
       console.log(circuit);
-      const start = performance.now();
-      const proof = await workerApis.zkboogieProve(circuit, 128);
-      const time = performance.now() - start;
-      console.log(proof);
-      return `${time} ms`;
+      const time = await workerApis.zkboogieProve(circuit, 128);
+      return `Proving time: ${time} ms`;
     }
     case 2: {
       let circuit = await workerApis.genCircuit(128, 512, 512);
       console.log(circuit);
-      const start = performance.now();
-      const proof = await workerApis.zkboogieProve(circuit, 128);
-      const time = performance.now() - start;
-      console.log(proof);
-      return `${time} ms`;
+      const time = await workerApis.zkboogieProve(circuit, 128);
+      return `Proving time: ${time} ms`;
     }
     case 3: {
       let circuit = await workerApis.genCircuit(128, 1024, 1024);
       console.log(circuit);
-      const start = performance.now();
-      const proof = await workerApis.zkboogieProve(circuit, 128);
-      const time = performance.now() - start;
-      console.log(proof);
-      return `${time} ms`;
+      const time = await workerApis.zkboogieProve(circuit, 128);
+      return `Proving time: ${time} ms`;
     }
     case 4: {
       let circuit = await workerApis.genCircuit(128, 2048, 2048);
       console.log(circuit);
-      const start = performance.now();
-      const proof = await workerApis.zkboogieProve(circuit, 128);
-      const time = performance.now() - start;
-      console.log(proof);
-      return `${time} ms`;
+      const time = await workerApis.zkboogieProve(circuit, 128);
+      return `Proving time: ${time} ms`;
     }
     case 5: {
       let circuit = await workerApis.genCircuit(128, 4096, 4096);
       console.log(circuit);
-      const start = performance.now();
-      const proof = await workerApis.zkboogieProve(circuit, 128);
-      const time = performance.now() - start;
-      console.log(proof);
-      return `${time} ms`;
+      const time = await workerApis.zkboogieProve(circuit, 128);
+      return `Proving time: ${time} ms`;
     }
     case 6: {
       let circuit = await workerApis.genCircuit(128, 8192, 8192);
       console.log(circuit);
-      const start = performance.now();
-      const proof = await workerApis.zkboogieProve(circuit, 128);
-      const time = performance.now() - start;
-      console.log(proof);
-      return `${time} ms`;
+      const time = await workerApis.zkboogieProve(circuit, 128);
+      return `Proving time: ${time} ms`;
     }
     case 7: {
       let circuit = await workerApis.genCircuit(128, 16384, 16384);
       console.log(circuit);
-      const start = performance.now();
-      const proof = await workerApis.zkboogieProve(circuit, 128);
-      const time = performance.now() - start;
-      console.log(proof);
-      return `${time} ms`;
+      const time = await workerApis.zkboogieProve(circuit, 128);
+      return `Proving time: ${time} ms`;
     }
     case 8: {
       let circuit = await workerApis.genCircuit(128, 32768, 32768);
       console.log(circuit);
-      const start = performance.now();
-      const proof = await workerApis.zkboogieProve(circuit, 128);
-      const time = performance.now() - start;
-      console.log(proof);
-      return `${time} ms`;
+      const time = await workerApis.zkboogieProve(circuit, 128);
+      return `Proving time: ${time} ms`;
     }
     case 9: {
       let circuit = await workerApis.genCircuit(128, 65536, 65536);
       console.log(circuit);
-      const start = performance.now();
-      const proof = await workerApis.zkboogieProve(circuit, 128);
-      const time = performance.now() - start;
-      console.log(proof);
-      return `${time} ms`;
+      const time = await workerApis.zkboogieProve(circuit, 128);
+      return `Proving time: ${time} ms`;
     }
     case 10: {
       let circuit = await workerApis.genCircuit(128, 131072, 131072);
       console.log(circuit);
-      const start = performance.now();
-      const proof = await workerApis.zkboogieProve(circuit, 128);
-      const time = performance.now() - start;
-      console.log(proof);
-      return `${time} ms`;
+      const time = await workerApis.zkboogieProve(circuit, 128);
+      return `Proving time: ${time} ms`;
     }
     case 11: {
       let circuit = await workerApis.genCircuit(128, 262144, 262144);
       console.log(circuit);
-      const start = performance.now();
-      const proof = await workerApis.zkboogieProve(circuit, 128);
-      const time = performance.now() - start;
-      console.log(proof);
-      return `${time} ms`;
+      const time = await workerApis.zkboogieProve(circuit, 128);
+      return `Proving time: ${time} ms`;
     }
     case 12: {
       let circuit = await workerApis.genCircuit(128, 524288, 524288);
       console.log(circuit);
-      const start = performance.now();
-      const proof = await workerApis.zkboogieProve(circuit, 128);
-      const time = performance.now() - start;
-      console.log(proof);
-      return `${time} ms`;
+      const time = await workerApis.zkboogieProve(circuit, 128);
+      return `Proving time: ${time} ms`;
     }
     case 14: {
-      const start = performance.now();
-      await workerApis.groth16Prove("https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add256_mul256.wasm", "https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add256_mul256.zkey", 128);
-      const time = performance.now() - start;
-      return `${time} ms`;
+      const [downloadTime, provingTime] = await workerApis.groth16Prove("https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add256_mul256.wasm", "https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add256_mul256.zkey", 128);
+      return `Download time: ${downloadTime} ms, Proving time: ${provingTime} ms, Total time: ${downloadTime + provingTime} ms`;
     }
     case 15: {
-      const start = performance.now();
-      await workerApis.groth16Prove("https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add512_mul512.wasm", "https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add512_mul512.zkey", 128);
-      const time = performance.now() - start;
-      return `${time} ms`;
+      const [downloadTime, provingTime] = await workerApis.groth16Prove("https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add512_mul512.wasm", "https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add512_mul512.zkey", 128);
+      return `Download time: ${downloadTime} ms, Proving time: ${provingTime} ms, Total time: ${downloadTime + provingTime} ms`;
     }
     case 16: {
-      const start = performance.now();
-      await workerApis.groth16Prove("https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add1024_mul1024.wasm", "https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add1024_mul1024.zkey", 128);
-      const time = performance.now() - start;
-      return `${time} ms`;
+      const [downloadTime, provingTime] = await workerApis.groth16Prove("https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add1024_mul1024.wasm", "https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add1024_mul1024.zkey", 128);
+      return `Download time: ${downloadTime} ms, Proving time: ${provingTime} ms, Total time: ${downloadTime + provingTime} ms`;
     }
     case 17: {
-      const start = performance.now();
-      await workerApis.groth16Prove("https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add2048_mul2048.wasm", "https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add2048_mul2048.zkey", 128);
-      const time = performance.now() - start;
-      return `${time} ms`;
+      const [downloadTime, provingTime] = await workerApis.groth16Prove("https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add2048_mul2048.wasm", "https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add2048_mul2048.zkey", 128);
+      return `Download time: ${downloadTime} ms, Proving time: ${provingTime} ms, Total time: ${downloadTime + provingTime} ms`;
     }
     case 18: {
-      const start = performance.now();
-      await workerApis.groth16Prove("https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add4096_mul4096.wasm", "https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add4096_mul4096.zkey", 128);
-      const time = performance.now() - start;
-      return `${time} ms`;
+      const [downloadTime, provingTime] = await workerApis.groth16Prove("https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add4096_mul4096.wasm", "https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add4096_mul4096.zkey", 128);
+      return `Download time: ${downloadTime} ms, Proving time: ${provingTime} ms, Total time: ${downloadTime + provingTime} ms`;
     }
     case 19: {
-      const start = performance.now();
-      await workerApis.groth16Prove("https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add8192_mul8192.wasm", "https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add8192_mul8192.zkey", 128);
-      const time = performance.now() - start;
-      return `${time} ms`;
+      const [downloadTime, provingTime] = await workerApis.groth16Prove("https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add8192_mul8192.wasm", "https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add8192_mul8192.zkey", 128);
+      return `Download time: ${downloadTime} ms, Proving time: ${provingTime} ms, Total time: ${downloadTime + provingTime} ms`;
     }
     case 20: {
-      const start = performance.now();
-      await workerApis.groth16Prove("https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add16384_mul16384.wasm", "https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add16384_mul16384.zkey", 128);
-      const time = performance.now() - start;
-      return `${time} ms`;
+      const [downloadTime, provingTime] = await workerApis.groth16Prove("https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add16384_mul16384.wasm", "https://storage.googleapis.com/zkboogie-bench-groth16-keys/input128_add16384_mul16384.zkey", 128);
+      return `Download time: ${downloadTime} ms, Proving time: ${provingTime} ms, Total time: ${downloadTime + provingTime} ms`;
     }
     default: {
       throw new Error("Invalid id");
