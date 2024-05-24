@@ -188,6 +188,11 @@ function App() {
     <div className="App">
       <h1>ZKBoogie Benchmarks</h1>
       <h3>You can generate ZKBoogie (and groth16) proofs on your browser!</h3>
+      <p>This demo performs non-trivial amount of computation on your device.</p>
+      <p>By pushing the "Prove" button, you can start proof generation for each scheme/circuit configuration.</p>
+      <p>If there is no change for more than 5 minutes after pressing the button, please reload the screen.</p>
+      <p>The proof generation might fail if your browser does not support WebWorker or your machine does not have enough memory for the specified circuit size.</p>
+      <p style={{ height: '50px' }} ></p>
       {listData.map((item, idx) => (
         <div key={item.id}>
           <p>{item.description}</p>

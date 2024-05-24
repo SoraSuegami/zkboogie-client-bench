@@ -41,7 +41,8 @@ export async function zkboogieProve(circuit: Uint8Array, num_input: number): Pro
         const hasher_prefix = new Uint32Array(0);
         let input = Array(num_input).fill('0x' + '0'.repeat(64));
         const start = performance.now();
-        multiThreads.zkboogie_prove_wasm(100, hasher_prefix, circuit, input);
+        const proof = multiThreads.zkboogie_prove_wasm(100, hasher_prefix, circuit, input);
+        console.log(`proof size: ${proof.length}`);
         return performance.now() - start;
     } catch (e) {
         console.error(e);
@@ -68,6 +69,7 @@ export async function groth16Prove(wasm_path: string, zkey_path: string, num_inp
         mode: 'cors'
     }).then(res => res.arrayBuffer());
     const zkey = new Uint8Array(zkeyBuffer);
+    console.log(`zkey size: ${zkey.length}`)
     const downloadTime = performance.now() - start;
     start = performance.now();
     await groth16.fullProve(input, wasm, zkey, console);
